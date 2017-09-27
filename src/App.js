@@ -15,14 +15,28 @@ class App extends Component {
     console.log(todo)
     this.setState({
       todos:this.state.todos.concat(todo)
-    })
+    });
+    this.setState({
+      search:this.state.search.concat(todo)
+    });
   }
+
+  search(event){
+    var items = this.state.todos;
+    var filterItems = items.filter(function(todo){
+      return todo.includes(event.target.value)
+      });
+    this.setState({ search: filterItems });
+    console.log(event.target.value);
+  }
+
 
 render() {
   return (
     <div>
-      <h1>My Todos</h1>
-      < TodoFo  rm addNewTodoFunc={this.addNewTodo.bind(this)}/>
+      <h2>My Todos</h2>
+  		< input onChange={(event)=>this.search(event)} type="text" placeholder="Search"/>
+      < TodoForm addNewTodoFunc={this.addNewTodo.bind(this)}/>
       < TodoList todo_data={this.state.todos}/>
     </div>
   );

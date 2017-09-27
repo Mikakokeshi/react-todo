@@ -32,7 +32,7 @@ addTodo() {
       <div>
           <input onChange={(event) => this.updateText(event)}
             value={this.state.text}/>
-            <button onClick= {() => this.props.addNewTodoFunc(this.state.text )}>Add Todo</button>
+            <button onClick= {() => this.props.addNewTodoFunc(this.state.text)}>Add Todo</button>
       </div>
     );
   }
